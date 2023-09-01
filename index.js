@@ -16,6 +16,10 @@ const client = new DiscussServiceClient({
 
 app.use(express.json());
 
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello, server" });
+});
+
 app.post("/api/chat", async (req, res) => {
   const inputMessage = req.body.message;
 
