@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors"); // Import the cors middleware
 const { DiscussServiceClient } = require("@google-ai/generativelanguage");
 const { GoogleAuth } = require("google-auth-library");
 
@@ -15,6 +16,9 @@ const client = new DiscussServiceClient({
 });
 
 app.use(express.json());
+
+// Use the cors middleware with appropriate options
+app.use(cors());
 
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello, server" });
